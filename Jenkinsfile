@@ -17,7 +17,7 @@ pipeline {
             stage('Deploy') {
                   steps {
                         echo "Deploying in Staging Area"
-                        deploy contextPath: null, **/*.html: 'http://18.191.61.124:9090/'
+                        deploy contextPath: null, **/*.*: 'http://18.191.61.124:9090/'
                   }
             }
             stage('Deploy Production') {
