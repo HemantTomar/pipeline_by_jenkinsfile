@@ -10,7 +10,7 @@ pipeline {
             stage('Build') {
                   steps {
                         echo 'Building Sample Simple Project'
-                        archiveArtifacts '/var/lib/jenkins/workspace/pipe2/*.*'
+                        archiveArtifacts '/var/lib/jenkins/workspace/pipe2/*'
                         
                   }
             }
