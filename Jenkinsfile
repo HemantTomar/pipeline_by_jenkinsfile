@@ -1,15 +1,17 @@
 pipeline {
       agent any
       stages {
-            stage('Init') {
+            stage('checkout from scm') {
                   steps {
                         echo 'Hi, this is Hemant Kumar from 3 Pillar Global'
-                        echo 'We are Starting the Testing'
+                        git='https://github.com/HemantTomar/pipeline_by_jenkinsfile.git'
                   }
             }
             stage('Build') {
                   steps {
-                        echo 'Building Sample Maven Project'
+                        echo 'Building Sample Simple Project'
+                        archiveArtifacts '**/.war'
+                        
                   }
             }
             stage('Deploy') {
