@@ -18,7 +18,7 @@ pipeline {
                   steps {
                         echo "Deploying in Staging Area"
                         copyArtifacts filter: '**/*.*', fingerprintArtifacts: true, projectName: 'pipe2'
-                        sh 'sudo cp -r /var/lib/jenkins/workspace/pipe2 /opt/tomcat/apache-tomcat-9.0.30/webapps/
+                        sh 'sudo cp -r /var/lib/jenkins/workspace/pipe2 /opt/tomcat/tomcat_stag_9090/webapps/
                   }
             }
             stage('Deploy Production') {
