@@ -10,15 +10,15 @@ pipeline {
             stage('Build') {
                   steps {
                         echo 'Building Sample Simple Project'
-                        archiveArtifacts '/var/lib/jenkins/workspace/pipe2/*.war'
+                        archiveArtifacts '/var/lib/jenkins/workspace/pipe2/*.jar'
                         
                   }
             }
             stage('Deploy') {
                   steps {
                         echo "Deploying in Staging Area"
-                        copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, projectName: 'pipe2'
-                        deploy adapters: [tomcat9(credentialsId: '664ee0b6-405c-4fd9-926d-01a864a96c6b', path: '', url: 'http://18.191.61.124:9090/')], contextPath: '/', war: '**/*.war'
+                        copyArtifacts filter: '**/*.jar', fingerprintArtifacts: true, projectName: 'pipe2'
+                        deploy adapters: [tomcat9(credentialsId: '664ee0b6-405c-4fd9-926d-01a864a96c6b', path: '', url: 'http://18.191.61.124:9090/')], contextPath: '/', war: '**/*.jar'
                   }
             }
             stage('Deploy Production') {
