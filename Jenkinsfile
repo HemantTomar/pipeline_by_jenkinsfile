@@ -17,7 +17,8 @@ pipeline {
             stage('Deploy') {
                   steps {
                         echo "Deploying in Staging Area"
-                        deploy contextPath: null, **/*.*: 'http://18.191.61.124:9090/'
+                        copyArtifacts filter: '**/*.*', fingerprintArtifacts: true, projectName: 'pipe2'
+                        deploy adapters: [tomcat9(credentialsId: '664ee0b6-405c-4fd9-926d-01a864a96c6b', path: '', url: 'http://18.191.61.124:9090/')], contextPath: '/', war: '**/*.*'
                   }
             }
             stage('Deploy Production') {
