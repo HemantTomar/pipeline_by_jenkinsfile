@@ -4,7 +4,7 @@ pipeline {
             stage('checkout from scm') {
                   steps {
                         echo 'Hi, this is Hemant Kumar from 3 Pillar Global'
-                        git='https://github.com/HemantTomar/pipeline_by_jenkinsfile.git'
+                        git 'https://github.com/HemantTomar/pipeline_by_jenkinsfile.git'
                   }
             }
             stage('Build') {
